@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'pessoa',
     'endereco',
+    'pedido',
 ]
 
 MIDDLEWARE = [
