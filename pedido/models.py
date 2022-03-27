@@ -1,6 +1,7 @@
 from django.db import models
 from pessoa.models import Pessoa
 from pessoa.models import Base
+from produto.models import Produto
 
 
 class Pedido(Base):
@@ -15,7 +16,8 @@ class Pedido(Base):
     data = models.DateField('Data_Pedido')
     status = models.CharField('Status', max_length=3, choices=STATUS_CHOICES)
     valor = models.DecimalField('Valor', max_digits=5, decimal_places=2)
-    pessoa = pessoa = models.ForeignKey(Pessoa, on_delete=models.PROTECT)
+    pessoa = models.ForeignKey(Pessoa, on_delete=models.PROTECT)
+    produto = models.ManyToManyField(Produto)
     
     class Meta:
         verbose_name = 'Pedido'
